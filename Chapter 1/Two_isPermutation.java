@@ -21,10 +21,9 @@ class Two_isPermutation {
 
 		for(char c: t.toCharArray()) {
 			arr[c - '0']--;
-		}
-
-		for(int i: arr) {
-			if( i != 0) return false;
+			if(arr[c - '0'] < 0){
+				return false;
+			}
 		}
 		return true;
 
