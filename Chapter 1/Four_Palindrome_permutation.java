@@ -9,10 +9,10 @@ class Four_Palindrome_permutation {
 		for(char c: s.toCharArray()) {
 			if(c != ' '){
 				if(!SMap.containsKey(c)) {
-				SMap.put(c, 1);
-			    }
+				  SMap.put(c, 1);
+			        }
 				else {
-					SMap.put(c, SMap.get(c) + 1);
+				  SMap.put(c, SMap.get(c) + 1);
 				}
 			}	
 		}
