@@ -33,4 +33,15 @@ One_isUnique {
       }
       return true;
    }
+  private static boolean isUnique3(String s){
+    	boolean[] arr = new boolean[128];
+
+    	for(char c: s.toCharArray()) {
+    		if(arr[c] == true) {
+    			return false;
+    		}
+    		arr[c] = true;
+    	}
+    	return true;
+    }
 }
