@@ -1,3 +1,4 @@
+import java.util.*;
 class Two_isPermutation {
 	public static void main(String[] args) {
 		String s = "abcd";
@@ -6,7 +7,29 @@ class Two_isPermutation {
 
 		System.out.println(isPermutation(s, t));
 		System.out.println(isPermutation(s, t1));
+
+
+		System.out.println(isPermutation2(s, t));
+		System.out.println(isPermutation2(s, t1));
 	}
+
+	private static boolean isPermutation2(String s, String t) {
+		int[] arr = new int[128];
+		for(char c: s.toCharArray()) {
+			arr[c - '0']++;
+		}
+
+		for(char c: t.toCharArray()) {
+			arr[c - '0']--;
+		}
+
+		for(int i: arr) {
+			if( i != 0) return false;
+		}
+		return true;
+
+	}
+
 	private static boolean isPermutation(String s, String t) {
 		// a Permutation is re-arrage of letters in one string
 		HashMap<Character, Integer> mapOfs = new HashMap<>();
@@ -33,9 +56,6 @@ class Two_isPermutation {
 		return true;
 	}
 
-	private static boolean isPermutation2(String s, String t) {
-
-	}
 
 
 }
