@@ -6,7 +6,7 @@ One_isUnique {
 	System.out.println(isUnique(s1));
 	System.out.println(isUnique(s2));
 
-}
+  }
 	//O(n^2)
   private static boolean isUnique(String s){
        // check if a string has all unique characters, can't use addtional datastructure
@@ -20,19 +20,17 @@ One_isUnique {
     return true;
   }
 	// R O(n), S O(n)
-	private static boolean isUnique2(String s){
-		int[] arr = new int[256];
-
-		for(char c: s.toCharArray()) {
-			int a = (int)c;
-			arr[a]++;
-		}
-
-		for(int i =0; i < 256; i++) {
-			if(arr[i] > 1){
-				return false;
-			}
-		}
-		return true;
-	}
+  private static boolean isUnique2(String s){
+      int[] arr = new int[256];
+      for(char c: s.toCharArray()) {
+	 int a = (int)c;
+	 arr[a]++;
+      }
+      for(int i =0; i < 256; i++) {
+	 if(arr[i] > 1){
+		return false;
+	 }
+      }
+      return true;
+   }
 }
