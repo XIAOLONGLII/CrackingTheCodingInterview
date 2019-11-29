@@ -24,4 +24,32 @@ class Four_Partition {
 
         return LessK;
     }
+  
+  
+  
+  private static LinkedList partitionLL2(LinkedListNode node, int k) {
+
+        LinkedList head = node;
+        LinkedList tail = node;
+
+        Node current = node;
+        while(current != null) {
+            LinkedListNode NEXT = current.next;
+            if(current.data < x){
+                current.next = head;
+                head = current;
+            }
+            else{
+                tail.next = node;
+                tail = current;
+            }
+            current = NEXT;
+        }
+        tail.next = null;
+
+        return head;
+    }
+
+
+
 }
