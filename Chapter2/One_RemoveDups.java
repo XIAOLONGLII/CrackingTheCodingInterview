@@ -82,7 +82,7 @@ public class LinkedList {
         printList(list);
         System.out.println();
         printList(removeDups(list));
-        
+        printList(removeDups2(list));
     } 
 
     private static LinkedList removeDups(LinkedList list) {
@@ -98,6 +98,26 @@ public class LinkedList {
         }
         //printList(UniqueList); 
         return UniqueList;
+    }
+  
+  private static LinkedList removeDups2(LinkedList list) {
+        //
+        HashSet<Integer> UniqueValueofList = new HashSet<>();
+        Node pre = null;
+        LinkedList res = new LinkedList();
+        Node current = list.head;
+        while(current != null) {
+            if(UniqueValueofList.contains(current.data)){
+                pre.next = current.next;
+            }
+            else {
+                UniqueValueofList.add(current.data);
+                pre = current;
+                res = res.insert(res, pre.data);
+            }
+            current = current.next;
+        }        
+        return res;
     }
 
 } 
