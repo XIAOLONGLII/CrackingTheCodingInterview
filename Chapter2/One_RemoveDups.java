@@ -125,9 +125,9 @@ public class LinkedList {
         return res;
     }
   
-  
+        // follow up: 
     private static void removeDups3(LinkedList list) {
-        //
+  
         LinkedList res = new LinkedList();
         Node walk = list.head;
         while(walk != null) {
