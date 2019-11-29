@@ -17,7 +17,7 @@ class Four_Partition {
         }
         Node lessHead = LessK.head;
         Node moreHead = MoreK.head;
-        while(lessHead != null) {
+        while(lessHead.next != null) {
             lessHead = lessHead.next;
         }
         lessHead.next = moreHead;
