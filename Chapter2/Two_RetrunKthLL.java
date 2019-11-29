@@ -2,6 +2,25 @@
 2.2 Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list. 
 */
 class Two_RetrunKthLL {
+     // two pointers, one is start from KthNode, one start from beginning, once the KthPtr hit end, the 2nd ptr will be in the right spot.
+     private static int theKthToLastLL_Recursive(LinkedList list, int k) {
+
+        Node ptr1 = list.head;
+        Node ptr2 = list.head;
+
+        while( k > 1){
+            k--;
+            ptr1 = ptr1.next;
+        } 
+        while(ptr1 != null) {
+            ptr1 = ptr1.next;
+            ptr2 = ptr2.next;
+        }
+
+        return ptr2.data;
+    }
+
+
      private static int theKthToLastLL(LinkedList list, int K) {
 
         // k = 2, would be the last 2 
