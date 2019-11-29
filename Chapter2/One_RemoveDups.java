@@ -50,7 +50,7 @@ public class LinkedList {
     { 
         Node currNode = list.head; 
    
-        System.out.print("LinkedList: "); 
+        System.out.println("LinkedList: "); 
    
         // Traverse through the LinkedList 
         while (currNode != null) { 
@@ -79,10 +79,15 @@ public class LinkedList {
         list = insert(list, 6);
   
         // Print the LinkedList 
+        System.out.println("Original LL: ");
         printList(list);
-        System.out.println();
+        System.out.println("HashSet LL: ");
         printList(removeDups(list));
+        System.out.println("HashSet LL: ");
         printList(removeDups2(list));
+        System.out.println("walk-runner LL: ");
+        removeDups3(list);
+        printList(list);
     } 
 
     private static LinkedList removeDups(LinkedList list) {
@@ -118,6 +123,26 @@ public class LinkedList {
             current = current.next;
         }        
         return res;
+    }
+  
+  
+    private static void removeDups3(LinkedList list) {
+        //
+        LinkedList res = new LinkedList();
+        Node walk = list.head;
+        while(walk != null) {
+            Node run = walk;
+            while(run.next != null) {
+                if(run.next.data == walk.data) {
+                    run.next = run.next.next;
+                }
+                else {
+                    run = run.next;
+                }
+            }
+            walk = walk.next;
+        }
+        
     }
 
 } 
