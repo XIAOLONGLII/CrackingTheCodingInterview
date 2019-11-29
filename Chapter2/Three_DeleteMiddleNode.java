@@ -21,4 +21,15 @@ class Three_DeleteMiddleNode {
         }
         return afterDelete;
     }
+  
+  
+  
+  private static boolean deleteMiddleNode(Node middle) {
+        if(middle == null || middle.next == null) return false;
+        Node Next = middle.next;
+        middle.data = Next.data;
+        middle.next = Next.next;
+        return true; 
+    }
+
 }
