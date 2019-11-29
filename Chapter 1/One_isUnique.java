@@ -1,5 +1,9 @@
-One_isUnique {
-  
+/*
+1.1 Is Unique: Implement an algorithm to determine if a string has all unique characters. What if you
+cannot use additional data structures? 
+
+*/
+class One_isUnique {
   public static void main(String[] args) {
 	String s1 = "abcd";
 	String s2 = "abcc";
