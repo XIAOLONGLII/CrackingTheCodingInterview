@@ -42,3 +42,4 @@ class Seven_RotateMatrix {
 	}
 
 }
+//source: https://stackoverflow.com/questions/42519/how-do-you-rotate-a-two-dimensional-array?page=1&tab=votes#tab-top
