@@ -11,6 +11,7 @@ class Two_RetrunKthLL {
         while( k > 1){
             k--;
             ptr1 = ptr1.next;
+             if(ptr1 == null) return null; // out of bound
         } 
         while(ptr1 != null) {
             ptr1 = ptr1.next;
