@@ -2,7 +2,6 @@
 3.2 Stack Min: How would you design a stack which, in addition to push and pop, has a function min
 which returns the minimum eiement? Push, pop and min should ail operate in 0(1 ) time. 
 */
-// how to implement a stack
 
 public class StackwithMin extends Stack<NodeWithMin> {
 		public void push(int value) {
@@ -29,6 +28,7 @@ public class StackwithMin extends Stack<NodeWithMin> {
 }
 
 
+// how to implement a stack
 
 class Stack {
 	StackNode root;
