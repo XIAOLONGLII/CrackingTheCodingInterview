@@ -11,4 +11,5 @@ class Three_PushNewPlate {
       stacka.add(stack);
     }
   }
+  
 }
