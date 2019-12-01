@@ -1,6 +1,12 @@
 //4.5 Validate BST: Implement a function to check if a binary tree is a binary search tree. 
 class Five_ValidBST {
   private static boolean isValidBST(Node root) {
+	  /*
+	  1. left value smaller than root value
+	  2. right value greater than root value
+	  3. each sub tree is a valid BST
+	  
+	  */
 
 		// left < root, root < right
 		if(root == null) return true;
