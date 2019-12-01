@@ -5,17 +5,17 @@ node never differ by more than one.
 */
 class Four_isBalanced {
   private static boolean isBalanced(Node root) {
-		if(root == null) return true;
+	  if(root == null) return true;
+	  int L = getHeight(root.left);
+	  int R = getHeight(root.right);
+	  return Math.abs(L - R) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+  }
+  private static int getHeight(Node root) {
 		
-		return height(root) <= 1;
-	}
-	private static int height(Node root) {
-		
-		if(root == null) return 0;
-		int L = height(root.left);
-		int R = height(root.right);
-		return Math.abs(L - R);
-		
-	}
+	if(root == null) return 0;
+	int L = getHeight(root.left);
+	int R = getHeight(root.right);
+	return Math.max(L,R) + 1;
+  }
 
 }
