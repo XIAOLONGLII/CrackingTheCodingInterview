@@ -4,22 +4,52 @@ this question, a balanced tree is defined to be a tree such that the heights of 
 node never differ by more than one. 
 */
 class Four_isBalanced {
-  private static boolean isBalanced(Node root) {
-     if(root == null) return true;
-     int L = getHeight(root.left);
-     int R = getHeight(root.right);
-     return Math.abs(L - R) <= 1 && isBalanced(root.left) && isBalanced(root.right);
-  }
-  private int getHeight(Node root) {
-     if(root == null) {
-	return 0;
-     }
-     int L = getHeight(root.left);
-     int R = getHeight(root.right); 
-     return Math.max( L, R) + 1;
-  }
+	// 1. O(N*logN)
+	  private static boolean isBalanced(Node root) {
+	     if(root == null) return true;
+	     int L = getHeight(root.left);
+	     int R = getHeight(root.right);
+	     return Math.abs(L - R) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+	  }
+	  private int getHeight(Node root) {
+	     if(root == null) {
+		return 0;
+	     }
+	     int L = getHeight(root.left);
+	     int R = getHeight(root.right); 
+	     return Math.max( L, R) + 1;
+	  }
 	
-}
+	
+//2nd method O(n), we starts from height of tree, 
+    //if it is no balanced, we don't use the height in the balanced method, just return Integer.MIN_VALIUE;
+	private static int checkHeight(Node root) {
+		if(root == null) {
+			return -1;
+		}
+		int leftHeight = checkHeight(root.left);
+		if(leftHeight == Integer.MIN_VALUE){
+			return Integer.MIN_VALUE;
+		}
+		int rightHeight = checkHeight(root.right);
+		if(rightHeight == Integer.MIN_VALUE) {
+			return Integer.MIN_VALUE;
+		}
+
+		int heightDiff = leftHeight - rightHeight;
+		if(Math.abs(heightDiff) > 1) {
+			return Integer.MIN_VALUE;
+		}
+		else {
+			return Math.max(leftHeight, rightHeight) + 1;
+		}
+	}
+	private static boolean isBalancedOrNot(Node root){
+		return checkHeight(root) != Integer.MIN_VALUE;
+	}
+	
+     }
+
 	/*	
 		root = 1, != null
 	root.left = 2,  root.left =root, root != null, 
@@ -44,3 +74,4 @@ class Four_isBalanced {
 	node(1) = Math.max*( 3, 1)+ 1 = 4
 	
 	*/
+}
