@@ -5,6 +5,12 @@ node never differ by more than one.
 */
 class Four_isBalanced {
   private static boolean isBalanced(Node root) {
+	  /*
+		1) Left subtree of T is balanced
+		2) Right subtree of T is balanced
+		3) The difference between heights of left 
+   subtree and right subtree is not more than 1.
+	*/
 	  if(root == null) return true;
 	  int L = getHeight(root.left);
 	  int R = getHeight(root.right);
