@@ -5,23 +5,42 @@ node never differ by more than one.
 */
 class Four_isBalanced {
   private static boolean isBalanced(Node root) {
-	  /*
-		1) Left subtree of T is balanced
-		2) Right subtree of T is balanced
-		3) The difference between heights of left 
-   subtree and right subtree is not more than 1.
-	*/
-	  if(root == null) return true;
-	  int L = getHeight(root.left);
-	  int R = getHeight(root.right);
-	  return Math.abs(L - R) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+     if(root == null) return true;
+     int L = getHeight(root.left);
+     int R = getHeight(root.right);
+     return Math.abs(L - R) <= 1 && isBalanced(root.left) && isBalanced(root.right);
   }
-  private static int getHeight(Node root) {
-		
-	if(root == null) return 0;
-	int L = getHeight(root.left);
-	int R = getHeight(root.right);
-	return Math.max(L,R) + 1;
+  private int getHeight(Node root) {
+     if(root == null) {
+	return 0;
+     }
+     int L = getHeight(root.left);
+     int R = getHeight(root.right); 
+     return Math.max( L, R) + 1;
   }
-
+	
 }
+	/*	
+		root = 1, != null
+	root.left = 2,  root.left =root, root != null, 
+	root.left.left = 4, root!=null
+	root.left.left.left= null, return 0; left = 0;
+	root.left.left.right(4) = null return 0, max (left, right) + 1= 1
+
+	means node.left (2)= 1
+
+	node.left.right = 5, not null. 
+	node.left.right.left = 6, not null
+	node.left.right.left.left == null, left = 0
+	node.left.right.left = 6 -> max(0, 0) + 1
+
+
+	node.left.right(5).left = 1;
+	node.left.right(5).right = 0;
+	means node.left.right(5) = (1, 0 ) + 1 = 2;
+
+	means node.left (2)= Math.max(1, 2) + 1 = 3
+
+	node(1) = Math.max*( 3, 1)+ 1 = 4
+	
+	*/
