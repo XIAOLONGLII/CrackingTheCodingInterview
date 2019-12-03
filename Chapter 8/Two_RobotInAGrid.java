@@ -6,6 +6,12 @@ The robot can only move either down or right at any point in time. The robot is 
 How many possible unique paths are there?
 
 /*
+
+	/*
+	1. When (n==0||m==0) the function always returns 1 
+	   since the robot can't go left or up.
+	2. For all other cells. The result = uniquePaths(m-1,n) + uniquePaths(m,n-1)
+		*/
 import java.util.*;
 class RobotInAGrid{
 	public static void main(String[] args) {
@@ -16,11 +22,7 @@ class RobotInAGrid{
 		System.out.println(UniquePath3(row, col));
 	}
 	private static int UniquePath(int row, int col) {
-		/*
-	1. When (n==0||m==0) the function always returns 1 
-	   since the robot can't go left or up.
-	2. For all other cells. The result = uniquePaths(m-1,n) + uniquePaths(m,n-1)
-		*/
+	
 
 		/*
 		--------->
